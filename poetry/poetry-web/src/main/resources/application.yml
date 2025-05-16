@@ -1,0 +1,64 @@
+server:
+  port: 8081
+  tomcat:
+    threads.max: 50
+    max-connections: 100
+    max-http-form-post-size: 120MB
+    connection-timeout: 60000
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/poetize?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  mail:
+    host: smtp.qq.com
+    username: # 如有需要填写邮箱
+    password: # 如有需要填写授权码
+    default-encoding: utf-8
+    protocol: smtp
+    port: 465
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+user:
+  code:
+    format:
+  subscribe:
+    format:
+
+store:
+  type:
+
+local:
+  enable:
+  uploadUrl:
+  downloadUrl:
+
+qiniu:
+  enable:
+  accessKey:
+  secretKey:
+  bucket:
+  downloadUrl:
